@@ -15,7 +15,7 @@ router.post('/', (req,res) => {
            return db.select('*')
             .from('users')
             .where("email",'=',email)
-            .then((users) => {res.json(users[0])
+            .then((users) => {res.json(users[0].id)
             }).catch ((err) => res.status(400).json('Unable to get user info'))
          } else {
             res.status(400).json('Wrong user info')
