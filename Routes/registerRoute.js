@@ -30,7 +30,6 @@ router.post("/", (req, res) => {
       if (data && data.length) {
           return res.status(400).json({msg: `The email ${email} is already in use... try with another`,});
       } else {
-        console.log(data.length);
         const hash = bcrypt.hashSync(password, 10);
         db.transaction((trx) => {
           trx.insert({
